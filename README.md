@@ -2,17 +2,17 @@
 
 **Table of content**
 
-- [Project Overview](##abstract)
-- [Requirements](#setup)
-- [Installation](#install)
-- [To be added](#tobeadded)
+- [Project Overview](##Overview)
+- [Requirements](##Requirements)
+- [Installation](##Installation)
+- [To be added](##tobeadded)
 
-## Project Overview
+## Overview
 Python module interfaced with USGS 3DEP, that will be used by Data Scientists to fetch, visualize, and transform publicly available satellite and LIDAR data
 
 
 ## Requirements
-The project requires Python 3.6+, and python packages listed in `requiremenrts.txt` file
+The project requires Python 3.6+, and python packages listed in `requirements.txt` file
 
 ## Installation 
 
