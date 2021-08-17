@@ -29,7 +29,7 @@ conda install geopandas
 ```
 git clone https://github.com/Caphace-Ethan/Python_USGS_LIDAR
 cd Python_USGS_LIDAR
-pip install -r requirements.txt
+conda install -r requirements.txt
 ```
 
 ## tobeadded
