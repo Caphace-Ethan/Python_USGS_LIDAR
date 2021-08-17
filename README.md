@@ -2,9 +2,9 @@
 
 **Table of content**
 
-- [Project Overview](##Overview)
-- [Requirements](##Requirements)
-- [Installation](##Installation)
+- [Project Overview](##overview)
+- [Requirements](##requirements)
+- [Installation](##installation)
 - [To be added](##tobeadded)
 
 ## Overview
@@ -31,3 +31,5 @@ git clone https://github.com/Caphace-Ethan/Python_USGS_LIDAR
 cd Python_USGS_LIDAR
 pip install -r requirements.txt
 ```
+
+## tobeadded
