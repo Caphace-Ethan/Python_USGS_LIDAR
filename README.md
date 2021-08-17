@@ -12,7 +12,7 @@ Python module interfaced with USGS 3DEP, that will be used by Data Scientists to
 
 
 ## Requirements
-All requirements are listed in `requiremenrts.txt` file
+The project requires Python 3.6+, and python packages listed in `requiremenrts.txt` file
 
 ## Installation 
 
