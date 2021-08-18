@@ -23,6 +23,7 @@ conda activate geo_env
 conda config  --env --add channels conda-forge
 conda config --env --set channel_priority strict
 conda install geopandas
+conda install PDAL
 ```
 
 2. Cloning the repo and install the dependency packages using `requirements.txt`
