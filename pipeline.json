@@ -1,0 +1,28 @@
+[
+    {
+        "bounds": "([-93.756155, 41.918015], [-93.747334, 41.921429])",
+        "filename": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/RegioName/ept.json",
+        "type": "readers.ept"
+    },
+    {
+        "limits": "Classification[2:2]",
+        "type": "filters.range",
+        "tag": "classify"
+    },
+    {
+        "filename": "test.laz",
+        "inputs": [ "classify" ],
+        "tag": "writerslas",
+        "type": "writers.las"
+    },
+    {
+        "filename": "test.tif",
+        "gdalopts": "tiled=yes,     compress=deflate",
+        "inputs": [ "writerslas" ],
+        "nodata": -9999,
+        "output_type": "idw",
+        "resolution": 1,
+        "type": "writers.gdal",
+        "window_size": 6
+    }
+]
