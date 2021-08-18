@@ -1,8 +1,9 @@
 [
     {
         "bounds": "([-93.756155, 41.918015], [-93.747334, 41.921429])",
-        "filename": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/RegioName/ept.json",
+        "filename": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept.json",
         "type": "readers.ept"
+        // "tag": "readdata"
     },
     {
         "limits": "Classification[2:2]",
