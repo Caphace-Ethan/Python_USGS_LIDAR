@@ -2,7 +2,17 @@ import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
 
-from scripts.script import find_average, count_occurence
+
+def find_average(data):
+    sum = 0
+    for item in data:
+        sum = sum+item
+
+    return sum/len(data)
+
+def count_occurence(data):
+    
+    return data
 
 
 class TestCases(unittest.TestCase):
