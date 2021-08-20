@@ -1,6 +1,6 @@
 [
     {
-        "bounds": "([-93.756155, -93.747334], [41.918015, 41.921429])",
+        "bounds": "(-10436887.433, -10435905.484], [5148706.389,  5149217.146])",
         "filename": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept.json",
         "type": "readers.ept"
     },
