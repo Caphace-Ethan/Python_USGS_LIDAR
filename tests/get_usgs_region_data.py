@@ -3,6 +3,9 @@ import json
 import urllib3
 import pandas as pd
 from test_log import logger
+import logging
+import logging.handlers
+
 import os
 import sys
 
@@ -26,7 +29,7 @@ class GetMetadata():
     self.filename = name
     self._http = urllib3.PoolManager()
     self._file_handler = FileHandler()
-    self._logger = logger("GetMetadata")
+    self._logger = logging
 
   def get_name_and_year2(self, filename):
     filename = filename.replace('/', '')
