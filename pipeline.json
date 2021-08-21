@@ -1,6 +1,6 @@
 [
     {
-        "bounds": "(-10436887.433, -10435905.484], [5148706.389,  5149217.146])",
+        "bounds": "([-10436887.433, -10435905.484], [5148706.389,  5149217.146])",
         "filename": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept.json",
         "type": "readers.ept"
     },
@@ -10,13 +10,13 @@
         "tag": "classify"
     },
     {
-        "filename": "test.laz",
+        "filename": "data/laz/iowa.laz",
         "inputs": [ "classify" ],
         "tag": "writerslas",
         "type": "writers.las"
     },
     {
-        "filename": "test.tif",
+        "filename": "data/tif/iowa.tif",
         "gdalopts": "tiled=yes,     compress=deflate",
         "inputs": [ "writerslas" ],
         "nodata": -9999,
