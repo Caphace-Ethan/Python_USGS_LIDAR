@@ -2,7 +2,8 @@ from pathlib import Path
 
 
 class Config:
-  Root_Path = Path("../")
+
+  Root_Path = Path("./")
   Repository = "https://github.com/Caphace-Ethan/Python_USGS_LIDAR"
   Data_path = Root_Path / "data"
   Laz_path = Data_path / "laz"
@@ -19,5 +20,6 @@ class Config:
   remote_data_path = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept.json"
   remote_data_directory = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/"
   region_names = "usgs3dep_region_names"
+
 
 
