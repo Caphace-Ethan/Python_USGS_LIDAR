@@ -31,13 +31,13 @@
             "tag": "classify"
         },
         {
-            "filename": "iowa.laz",
+            "filename": "./test_data/iowa.laz",
             "inputs": [ "classify" ],
             "tag": "writerslas",
             "type": "writers.las"
         },
         {
-            "filename": "iowa.tif",
+            "filename": "./test_data/iowa.tif",
             "gdalopts": "tiled=yes,     compress=deflate",
             "inputs": [ "writerslas" ],
             "nodata": -9999,
