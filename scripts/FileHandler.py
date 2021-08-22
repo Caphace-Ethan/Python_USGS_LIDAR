@@ -1,14 +1,14 @@
 import json
 import laspy
 import pandas as pd
-from test_log import logger
+from log import logger
 import logging
 import logging.handlers
 
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join('./scripts')))
+# sys.path.append(os.path.abspath(os.path.join('./scripts')))
 from package_config import Config
 
 class FileHandler():
@@ -18,7 +18,7 @@ class FileHandler():
 
   def save_csv(self, df, name, index=False):
     try:
-      path = Config.Test_data_path / str(name + '.csv')
+      path = Config.Data_path / str(name + '.csv')
       df.to_csv(path, index=index)
       self._logger.info(f"{name} file saved successfully in csv format")
     except Exception:
@@ -26,7 +26,7 @@ class FileHandler():
 
   def read_csv(self, name, missing_values=[]):
     try:
-      path = Config.Test_data_path / str(name + '.csv')
+      path = Config.Data_path / str(name + '.csv')
       df = pd.read_csv(path, na_values=missing_values)
       self._logger.info(f"{name} file read successfully")
       return df
@@ -35,7 +35,8 @@ class FileHandler():
 
   def read_json(self, name):
     try:
-      path = Config.Test_data_path / str(name + '.json')
+      path = Config.Data_path / str(name + '.json')
+      # print("FileHandlerv-pipeline >>", path)   # For Debugging purposes
       with open(path, 'r') as json_file:
         json_obj = json.load(json_file)
       self._logger.info(f"{name} file read successfully")
@@ -55,7 +56,7 @@ class FileHandler():
 
   def read_point_data(self, name) -> dict:
     try:
-      path = Config.test_Laz_path / str(name + '.laz')
+      path = Config.Laz_path / str(name + '.laz')
       print(path)
       las = laspy.read(path)
       self._logger.info(f"{name} read successfully")

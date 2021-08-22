@@ -21,7 +21,7 @@ class Config:
   remote_data_directory = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/"
   region_names = "usgs3dep_region_data"
 
-  pipeline_path = Root_Path / "pipeline.json"
+  pipeline_path = Root_Path / "data/pipeline.json"
   test_pipeline_path = Root_Path / "tests/test_pipeline.json"
 
 
