@@ -6,7 +6,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Data](#data)
-- [Package Scripts](#pacakage scripts)
+- [Package_Scripts](#pacakage_scripts)
 - [Package](#package)
 
 
@@ -42,7 +42,7 @@ conda install -r requirements.txt
 - The point cloud data is freely accessible from AWS in EPT format. Entwine Point Tile (EPT) is a simple and flexible octree-based storage format for point cloud data. The organization of an EPT dataset contains JSON metadata portions as well as binary point data. The JSON file is core metadata required to interpret the contents of an EPT dataset.
 
 
-## Package Scripts
+## Package_Scripts
 Package Scripts are found in ```scripts``` directory, its content is explained below.
 - ```area_boundary:``` script for processing boundary coordinates/points of a given region.
 - ```dataframe_file:``` Processing of dataframe both geo-data and normal dataframes.
