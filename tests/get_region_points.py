@@ -12,13 +12,12 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join('./scripts')))
 from package_config import Config
-from FileHandler import FileHandler
 from area_boundary import Boundary
+from FileHandler import FileHandler
 from dataframe_file import Dataframe_Generator
 
 
 PUBLIC_DATA_PATH = Config.remote_data_directory
-# PUBLIC_DATA_PATH = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/"
 PIPELINE_PATH = Config.test_pipeline_path
 
 
