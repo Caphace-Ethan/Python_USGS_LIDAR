@@ -44,7 +44,7 @@ class GetData:
 
   def get_pipeline(self, bounds, polygon_str, regions, filename):
     try:
-      pipe = self._file_handler.read_json("test_pipeline")
+      pipe = self._file_handler.read_json("pipeline")
       print("Successfully read pipeline json file")
     except Exception as e:
       print(e)
