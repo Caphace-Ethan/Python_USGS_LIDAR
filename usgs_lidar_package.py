@@ -88,7 +88,7 @@ class GetData:
       self._logger.info("pl execution successfully>>")
       geo_data = self._df_generator.get_geo_data(pl.arrays)
       self._logger.info(f"successfully read geo data: {filename}")
-      self._logger.info(f"Geo Data: {geo_data}")
+      # self._logger.info(f"Geo Data: {geo_data}")
       return geo_data
     except RuntimeError as e:
       self._logger.exception(f"error reading geo data, error: {e}")
