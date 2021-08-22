@@ -1,28 +1,51 @@
-[
+{
+  "pipeline": [
     {
-        "bounds": "([-10436887.433, -10435905.484], [5148706.389,  5149217.146])",
-        "filename": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept.json",
-        "type": "readers.ept"
+      "type": "readers.ept",
+      "tag": "read_data",
+      "bounds": "",
+      "filename": ""
     },
     {
-        "limits": "Classification![7:7]",
-        "type": "filters.range",
-        "tag": "classify"
+      "type": "filters.crop",
+      "inputs": [ "read_data" ],
+      "tag": "crop",
+      "polygon": ""
     },
     {
-        "filename": "data/laz/iowa.laz",
-        "inputs": [ "classify" ],
-        "tag": "writerslas",
-        "type": "writers.las"
+      "type": "filters.range",
+      "inputs": [ "crop" ],
+      "tag": "no_noise",
+      "limits": "Classification![7:7]"
     },
     {
-        "filename": "data/tif/iowa.tif",
-        "gdalopts": "tiled=yes,     compress=deflate",
-        "inputs": [ "writerslas" ],
-        "nodata": -9999,
-        "output_type": "idw",
-        "resolution": 1,
-        "type": "writers.gdal",
-        "window_size": 6
+      "type": "filters.assign",
+      "inputs": [ "no_noise" ],
+      "tag": "wipe_classes",
+      "assignment": "Classification[:]=0"
+    },
+    {
+      "type": "filters.reprojection",
+      "inputs": [ "wipe_classes" ],
+      "tag": "reprojection",
+      "in_srs": "EPSG:3857",
+      "out_srs": ""
+    },
+    {
+      "type": "writers.las",
+      "tag": "writers_las",
+      "inputs": [ "reprojection" ],
+      "filename": ""
+    },
+    {
+      "type": "writers.gdal",
+      "inputs": [ "writers_las" ],
+      "filename": "",
+      "gdalopts": "tiled=yes, compress=deflate",
+      "nodata": -9999,
+      "output_type": "idw",
+      "resolution": 1,
+      "window_size": 6
     }
-]
+  ]
+}
