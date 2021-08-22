@@ -70,6 +70,8 @@ class GetMetadata():
     self._file_handler.save_csv(df, usgs_data_filename)
 
 
+# TESTING THE FUNCTIONS
+
 if __name__ == "__main__":
   gm = GetMetadata()
   gm.get_metadata()

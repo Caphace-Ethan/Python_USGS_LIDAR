@@ -1,0 +1,51 @@
+{
+  "pipeline": [
+    {
+      "type": "readers.ept",
+      "tag": "read_data",
+      "bounds": "",
+      "filename": ""
+    },
+    {
+      "type": "filters.crop",
+      "inputs": [ "read_data" ],
+      "tag": "crop",
+      "polygon": ""
+    },
+    {
+      "type": "filters.range",
+      "inputs": [ "crop" ],
+      "tag": "no_noise",
+      "limits": "Classification![7:7]"
+    },
+    {
+      "type": "filters.assign",
+      "inputs": [ "no_noise" ],
+      "tag": "wipe_classes",
+      "assignment": "Classification[:]=0"
+    },
+    {
+      "type": "filters.reprojection",
+      "inputs": [ "wipe_classes" ],
+      "tag": "reprojection",
+      "in_srs": "EPSG:3857",
+      "out_srs": ""
+    },
+    {
+      "type": "writers.las",
+      "tag": "writers_las",
+      "inputs": [ "reprojection" ],
+      "filename": ""
+    },
+    {
+      "type": "writers.gdal",
+      "inputs": [ "writers_las" ],
+      "filename": "",
+      "gdalopts": "tiled=yes, compress=deflate",
+      "nodata": -9999,
+      "output_type": "idw",
+      "resolution": 1,
+      "window_size": 6
+    }
+  ]
+}

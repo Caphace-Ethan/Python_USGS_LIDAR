@@ -7,14 +7,6 @@ import logging
 import logging.handlers
 from test_log import logger
 
-import json
-from numpy import fabs
-import pdal
-# from bounds import Bounds
-from scripts.package_config import Config
-# from df_generator import DfGenerator
-from FileHandler import FileHandler
-
 def crs_to_epsg(list):
 
 	s = gpd.GeoSeries([Point(list[0], list[1]), Point(list[2], list[3])])
@@ -25,6 +17,6 @@ def crs_to_epsg(list):
 	logger("test_logs")
 	return s
 
-# list = [-93.756155, 41.918015, -93.747334, 41.921429]
-#
-# bounds = crs_to_epsg(list)
+list = [-93.756155, 41.918015, -93.747334, 41.921429]
+
+bounds = crs_to_epsg(list)

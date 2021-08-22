@@ -1,6 +1,6 @@
 import json
 from numpy import fabs
-# import pdal
+import pdal
 from shapely.geometry import Polygon
 
 from test_log import logger
@@ -17,8 +17,8 @@ from area_boundary import Boundary
 from dataframe_file import Dataframe_Generator
 
 
-# PUBLIC_DATA_PATH = Config.remote_data_directory
-PUBLIC_DATA_PATH = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/"
+PUBLIC_DATA_PATH = Config.remote_data_directory
+# PUBLIC_DATA_PATH = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/"
 PIPELINE_PATH = Config.test_pipeline_path
 
 
@@ -40,7 +40,7 @@ class GetData:
   def get_pipeline(self, bounds, polygon_str, regions, filename):
     try:
       pipe = self._file_handler.read_json("test_pipeline")
-      print(pipe)
+      # print("Pipeline >>", pipe)   # For Debugging purposes
     except Exception as e:
       print(e)
 
@@ -53,8 +53,6 @@ class GetData:
     pipe['pipeline'][6]['filename'] = str(Config.test_Tif_path / str(filename + ".tif"))
     return pdal.Pipeline(json.dumps(pipe))
 
-  def check_cache(self):
-    pass
 
   def get_bound_metadata(self, bounds: Boundary):
 
@@ -91,22 +89,22 @@ class GetData:
   def get_data(self, polygon: Polygon, regions=[]) -> None:
 
     bound, polygon_str = self._df_generator.get_bound_from_polygon(polygon)
-    print("here1")
+    # print("here1")  # For Debugging purposes
     if len(regions) == 0:
       regions = self.get_bound_metadata(bound)
-      print("here2")
+      # print("here2")  # For Debugging purposes
     else:
       regions = self._metadata[self._metadata['filename'].isin(regions)]
-      print("here3")
+      # print("here3")  # For Debugging purposes
       print(regions)
       if self.check_valid_bound(bound, regions) is False:
         self._logger.exception("The boundary is not within the region provided")
-    print("here")
+    # print("here")  # For Debugging purposes
     list_geo_data = []
     for index, row in regions.iterrows():
-      print(">>>", bound, polygon_str, ":::", row['filename'])
+      # print(">>>", bound, polygon_str, ":::", row['filename'])  # For Debugging purposes
       data = self.get_geo_data(bound, polygon_str, row['filename'])
-      print(">>>", data)
+      # print(">>>", data)  # For Debugging purposes
       list_geo_data.append({'year': row['year'],
                             'region': row['region'],
                             'geo_data': data,
@@ -114,13 +112,13 @@ class GetData:
     return list_geo_data
 
 
-# Test
+# Testing the functions
 if __name__ == "__main__":
   fetcher = GetData(epsg=4326, metadata_filename="usgs3dep_region_names")
   MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.747334, 41.921429]
 
   polygon = Polygon(((MINX, MINY), (MINX, MAXY),
                      (MAXX, MAXY), (MAXX, MINY), (MINX, MINY)))
-  print(polygon)
-  fetcher.get_data(polygon, ["IA_FullState"])
-  # print(fetcher.get_data(polygon, ["IA_FullState"]))
+  # print(polygon)
+  # fetcher.get_data(polygon, ["IA_FullState"])
+  print(fetcher.get_data(polygon, ["IA_FullState"]))
