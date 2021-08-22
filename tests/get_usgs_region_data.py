@@ -18,9 +18,6 @@ from FileHandler import FileHandler
 usgs_data_public_url = Config.remote_data_directory
 usgs_data_filename = Config.region_names
 
-# from clean_audio import CleanAudio
-# from file_handler import FileHandler
-# from audio_vis import AudioVis
 
 class GetMetadata():
 
