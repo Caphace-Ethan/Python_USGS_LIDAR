@@ -8,6 +8,7 @@
 - [Data](#data)
 - [Package_Scripts](#pacakage_scripts)
 - [Package](#package)
+- [How to Use the Package](#how_to_use_the_package)
 
 
 ## Overview
@@ -55,5 +56,7 @@ Package Scripts are found in ```scripts``` directory, its content is explained b
 
 This package interacts with USGS 3DEP data through public API to retrieve data, in which for this case, the data source used is AWS
 
+## How to Use the Package
+To use the package, you have to import the package as shown in jupyter notebook file, ```package_test.ipynb```
 
 
