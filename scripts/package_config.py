@@ -7,14 +7,14 @@ class Config:
   Repository = "https://github.com/Caphace-Ethan/Python_USGS_LIDAR"
   Data_path = Root_Path / "data"
   Laz_path = Data_path / "laz"
-  Tif_path = Data_path / "shp"
-  Shp_path = Data_path / "tif"
+  Tif_path = Data_path / "tif"
+  Shp_path = Data_path / "shp"
   Image_path = Data_path / "img"
 
   Test_data_path = Root_Path / "tests/test_data"
   test_Laz_path = Test_data_path / "laz"
-  test_Tif_path = Test_data_path / "shp"
-  test_Shp_path = Test_data_path / "tif"
+  test_Tif_path = Test_data_path / "tif"
+  test_Shp_path = Test_data_path / "shp"
   test_Image_path = Test_data_path / "img"
 
   remote_data_path = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept.json"
