@@ -36,7 +36,6 @@ class FileHandler():
   def read_json(self, name):
     try:
       path = Config.Data_path / str(name + '.json')
-      # print("FileHandlerv-pipeline >>", path)   # For Debugging purposes
       with open(path, 'r') as json_file:
         json_obj = json.load(json_file)
       self._logger.info(f"{name} file read successfully")
