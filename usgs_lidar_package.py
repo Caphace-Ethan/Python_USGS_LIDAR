@@ -6,8 +6,10 @@
 
 import json
 from numpy import fabs
+import numpy as np
 import pdal
 from shapely.geometry import Polygon
+import matplotlib.pyplot as plt
 
 import logging
 import logging.handlers
@@ -114,13 +116,15 @@ class GetData:
                             })
     return list_geo_data
 
+  def visualization_3D(self, df, s=0.01, color="blue"):
 
-# Testing the functions
-# if __name__ == "__main__":
-#   fetcher = GetData(epsg=4326, metadata_filename="usgs3dep_region_data")
-#   MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.747334, 41.921429]
-#
-#   polygon = Polygon(((MINX, MINY), (MINX, MAXY),
-#                      (MAXX, MAXY), (MAXX, MINY), (MINX, MINY)))
-#   # print(polygon)
-#   print(fetcher.get_data(polygon, ["IA_FullState"]))
+    x = df.geometry.x
+    y = df.geometry.y
+    z = df.elevation
+    points = np.vstack((x, y, z)).transpose()
+    fig, ax = plt.subplots(1, 1, figsize=(12, 10))
+    ax = plt.axes(projection='3d')
+    ax.scatter(points[:, 0], points[:, 1],
+               points[:, 2], s=0.01, color="blue")
+    plt.show()
+
