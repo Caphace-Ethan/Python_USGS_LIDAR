@@ -116,7 +116,7 @@ class GetData:
                             })
     return list_geo_data
 
-  def visualization_3D(self, df, s=0.01, color="blue"):
+  def visualization_3D(self, df):
 
     x = df.geometry.x
     y = df.geometry.y
@@ -125,6 +125,6 @@ class GetData:
     fig, ax = plt.subplots(1, 1, figsize=(12, 10))
     ax = plt.axes(projection='3d')
     ax.scatter(points[:, 0], points[:, 1],
-               points[:, 2], s=0.01, color="blue")
+               points[:, 2], s=0.01, color="green")
     plt.show()
 
